@@ -3,8 +3,10 @@ LABEL ai.ix.maintainer="docker@ix.ai"
 
 ENV LOGLEVEL=INFO URL=https://data.ripple.com
 
+RUN pip3 install requests
+
 COPY ripple-exporter.py /
 
 EXPOSE 9308
 
-ENTRYPOINT ["python3", "/coinbase-exporter.py"]
+ENTRYPOINT ["python3", "/ripple-exporter.py"]
