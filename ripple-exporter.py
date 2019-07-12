@@ -67,6 +67,10 @@ class RippleCollector:
             LOG.warning('Could not retrieve balance. The result follows.')
             LOG.warning('{}: {}'.format(r.get('result'), r.get('message')))
 
+    def describe(self):
+        """ Just a needed method, so that collect() isn't called at startup """
+        return []
+
     def collect(self):
         """ The actual collector """
         metrics = {
