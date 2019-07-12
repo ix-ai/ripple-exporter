@@ -1,9 +1,7 @@
 FROM hub.ix.ai/docker/alpine:latest
 LABEL ai.ix.maintainer="docker@ix.ai"
 
-RUN pip3 install coinbase
-
-ENV LOGLEVEL=INFO FIAT=EUR
+ENV LOGLEVEL=INFO URL=https://data.ripple.com
 
 COPY ripple-exporter.py /
 
