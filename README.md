@@ -6,15 +6,12 @@
 ```
 docker run --rm -it -p 9308:9308 \
   -e LOGLEVEL=DEBUG \
-  -e API_KEY="your_api_key" \
-  -e API_SECRET="your_api_secret" \
-  -e FIAT="USD" \
+  -e URL="https://data.ripple.com"
   --name ripple-exporter \
   hub.ix.ai/docker/ripple-exporter:latest
 ```
 
 ## Supported variables
-* `API_KEY` (no default) - set this to your Coinbase API key
-* `API_SECRET` (no default) - set this to your Coinbase API secret
-* `FIAT` (default: `EUR`) - the fiat currency for which to calculate the total transaction amount
+* `ADDRESSES` (no default) - comma separated list of the addresses monitor the balances
+* `URL` (default: `https://data.ripple.com`) - the Ripple URL
 * `LOGLEVEL` (defaults to `INFO`)

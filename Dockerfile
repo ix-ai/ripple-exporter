@@ -1,12 +1,12 @@
 FROM hub.ix.ai/docker/alpine:latest
 LABEL ai.ix.maintainer="docker@ix.ai"
 
-RUN pip3 install coinbase
+ENV LOGLEVEL=INFO URL=https://data.ripple.com
 
-ENV LOGLEVEL=INFO FIAT=EUR
+RUN pip3 install requests
 
 COPY ripple-exporter.py /
 
 EXPOSE 9308
 
-ENTRYPOINT ["python3", "/coinbase-exporter.py"]
+ENTRYPOINT ["python3", "/ripple-exporter.py"]
