@@ -5,7 +5,7 @@ ENV LOGLEVEL=INFO URL=https://data.ripple.com
 
 RUN pip3 install requests
 
-COPY ripple-exporter.py /
+COPY src/ripple-exporter.py /
 
 EXPOSE 9308
 
