@@ -9,7 +9,7 @@ docker run --rm -it -p 9999:9999 \
   -e URL="https://data.ripple.com" \
   -e PORT=9999 \
   --name ripple-exporter \
-  hub.ix.ai/docker/ripple-exporter:latest
+  registry.gitlab.com/ix.ai/ripple-exporter:latest
 ```
 
 ## Supported variables
