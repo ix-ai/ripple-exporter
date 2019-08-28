@@ -1,11 +1,15 @@
-FROM registry.gitlab.com/ix.ai/alpine:latest
-LABEL MAINTAINER="docker@ix.ai"
+FROM alpine:latest
+LABEL maintainer="docker@ix.ai"
 
 ARG PORT=9308
+ARG LOGLEVEL=INFO
+ARG URL=https://data.ripple.com
 
-RUN pip3 install --no-cache-dir requests
+RUN apk --no-cache upgrade && \
+    apk add --no-cache py3-requests && \
+    pip3 install --no-cache-dir prometheus_client pygelf
 
-ENV LOGLEVEL=INFO URL=https://data.ripple.com PORT=${PORT}
+ENV LOGLEVEL=${LOGLEVEL} URL=${URL} PORT=${PORT}
 
 COPY src/ripple-exporter.py /
 
